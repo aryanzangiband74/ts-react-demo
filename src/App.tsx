@@ -3,6 +3,8 @@ import TaskHeader from "./components/props/TaskHeader";
 import TaskList from "./components/props/TaskList";
 import User from "./components/props/User";
 import NoteList from "./components/state/NoteList";
+import DarkModeProvider from "./components/useContext/DarkModeContext";
+import Toggletheme from "./components/useContext/Toggletheme";
 
 const tasks = [
     {
@@ -21,10 +23,13 @@ const tasks = [
 function App() {
     return (
         <>
-            <TaskHeader name="aryan" age={27} />
-            <User user={{ name: "aaaaa", lastname: "scascascas" }} />
-            <TaskList tasks={tasks} />
-            <NoteList />
+            <DarkModeProvider>
+                <Toggletheme />
+                <TaskHeader name="aryan" age={27} />
+                <User user={{ name: "aaaaa", lastname: "scascascas" }} />
+                <TaskList tasks={tasks} />
+                <NoteList />
+            </DarkModeProvider>
         </>
     );
 }
